@@ -1,0 +1,35 @@
+{% extends 'mysite/base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <h3 class="fw-lighter display-4 mt-4">
+                {{ article.title }}
+            </h3>
+            <p class="small text-muted text-end">
+                {{ article.created_at }} {{ article.author }}</p>
+            <div class="my-5">{{ article.text | safe | linebreaksbr }}</div>
+
+            <div class="my-5">
+                {% include 'mysite/snippets/pr_in_article.html' %}
+            </div>
+
+
+            {% comment %} Like & Tags {% endcomment %}
+            <div>
+                {% include 'mysite/snippets/like_count.html' %}
+                {% include 'mysite/snippets/tag.html' %}
+            </div>
+
+            <hr class="my-4">
+            {% include 'mysite/snippets/comment.html' %}
+
+        </div>
+        {% include 'mysite/snippets/sidebar.html' %}
+    </div>
+</main>
+
+{% endblock %}

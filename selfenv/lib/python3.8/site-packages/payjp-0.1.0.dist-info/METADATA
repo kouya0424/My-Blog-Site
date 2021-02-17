@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: payjp
+Version: 0.1.0
+Summary: PAY.JP python bindings
+Home-page: https://github.com/payjp/payjp-python
+Author: PAY.JP
+Author-email: support@pay.jp
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: requests (>=2.7.0)
+Requires-Dist: six (>=1.9.0)
+
+UNKNOWN
+
+

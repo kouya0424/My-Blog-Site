@@ -1,0 +1,9 @@
+
+#静的ファイルを集める
+python manage.py collectstatic
+
+#GAE deploy
+gcloud app deploy --project self-introduction-0424
+
+#Cloud SQL へ接続
+./secrets/cloud_sql_proxy -instances=self-introduction-0424:us-central1:self-introduction-0424=tcp:3306

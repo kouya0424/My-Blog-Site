@@ -1,0 +1,20 @@
+{% load static %}
+{% for tag in article.tags.all %}
+<!--{% if 'Python' in tag.name %}-->
+
+<div class="col-md-12">
+    <a target="_blank"
+       href="https://www.amazon.co.jp/ENTRE-CIEL-TERRE-NICOLAS-STAEL/dp/2848112239/ref=pd_bxgy_img_2/356-1826084-0026542?_encoding=UTF8&pd_rd_i=2848112239&pd_rd_r=97055de0-a2c4-4c85-93d6-cd192d4e43f6&pd_rd_w=JVT1u&pd_rd_wg=bAzAR&pf_rd_p=e64b0a81-ca1b-4802-bd2c-a4b65bccc76e&pf_rd_r=7QJSWTTCA3BHAW1BH2RA&psc=1&refRID=7QJSWTTCA3BHAW1BH2RA">
+        <div class="card bg-light text-white">
+            <img class="rounded" src="{% static 'mysite/link-img2.jpg' %}">
+            <div class="card-img-overlay">
+                <h5 class="card-title">おすすめ書籍（広告）</h5>
+                <p class="card-text">Click.</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+<!--{% endif %}-->
+{% endfor %}

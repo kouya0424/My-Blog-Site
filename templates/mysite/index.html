@@ -1,0 +1,76 @@
+{% extends 'mysite/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="p-4 p-md-5 mb-4 rounded bg-dark bg-gradient text-white">
+        <h1 class="display-4 fw-lighter">Blog "Nicolas de Stael"</h1>
+        <p class="lead my-3">
+            ニコラ・ド・スタールの絵画に関する紹介サイトです。<br>
+            機能：コメント、Like、寄付 、Login、お問い合わせ など
+        </p>
+    </div>
+
+
+    <div class="row mb-2">
+        {% for obj in ranks %}
+        <div class="col-md-6">
+            <div class="row g-0 border border-secondary rounded overflow-hidden flex-md-row
+            mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">
+                        {% for tag in obj.tags.all %}
+                        {{ tag.name }}
+                        {% endfor %}
+                    </strong>
+                    <h3 class="mb-0 fw-lighter">{{ obj.title }}</h3>
+                    <div class="mb-1 text-muted text-dark">{{ obj.created_at }}
+                        <p class="card-text text-dark mb-auto">{{ obj.text|slice:":60" }}...</p>
+                        <div class="di-inline-block text-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                                 class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                            </svg>
+                            {{ obj.count }}
+                        </div>
+                    </div>
+                    <p class="card-text mb-auto">{{ obj.test }}</p>
+                    <a href="/blog/{{ obj.id }}" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="pb-4 font-italic border-bottom border-secondary ">
+                ブログ一覧
+            </h3>
+
+            {% for obj in articles%}
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{obj.title}}</h2>
+                <p class="blog-post-meta">
+                    {{ obj.created_at }} by <a href="#" class="text-success">{{ obj.author }}</a></p>
+                <p>{{ obj.text|slice:":120" }}...</p>
+                <a href="/blog/{{ obj.id }}" class="text-success">続きはこちら</a>
+                <hr>
+            </div>
+            {% endfor %}
+
+            <nav class="blog-pagination">
+                <a class="btn btn-success mb-3" href="/blog/">ブログ一覧はこちら</a>
+            </nav>
+        </div>
+        {% include 'mysite/snippets/sidebar.html' %}
+    </div>
+</main>
+
+{% endblock %}

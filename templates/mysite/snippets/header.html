@@ -1,0 +1,40 @@
+<header class="py-3 mb-3 text-light bg-secondary bg-gradient ">
+    <div class="row flex-nowrap justify-content-center align-item-center">
+        <div class="col-4 text-center">
+            <h1 class="display-4 fw-lighter">
+                <a href="/" class="text-light text-decoration-none">My Blog Site</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="py-1">
+        <div class="container">
+
+            <nav class="nav d-flex justify-content-between">
+                <!--Blog一覧 チップ-->
+                <div>
+                    <a class="p-2 link-light" href="/blog/">ブログ</a>
+                    <br>
+                    <a class="p-2 link-light" href="/pay/">チップ</a>
+                </div>
+                <!--お問い合わせ-->
+                <a class="p-2 link-light text-center" href="/contact/">お問い合わせ</a>
+                <!--login logout-->
+                {% if user.is_authenticated %}
+                <div>
+                    <a class="p-2 link-light" href="/logout/">ログアウト</a>
+                    <br>
+                    <a class="p-2 link-light" href="/mypage/">マイページ</a>
+                </div>
+                {% else %}
+                <div>
+                    <a class="p-2 link-light" href="/login/">ログイン</a>
+                    <br>
+                    <a class="p-2 link-light" href="/signup/">新規登録</a>
+                </div>
+                {% endif %}
+
+            </nav>
+        </div>
+    </div>
+</header>

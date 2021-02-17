@@ -1,0 +1,35 @@
+{% extends 'mysite/base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="pb-4 font-italic border-bottom border-secondary">
+                決済デモページ
+            </h3>
+            <!--好きな数支払えるように改善-->
+            <small>※この支払は1000円かかります。<br>
+                demo : 4242 4242 4242 4242  -  11/2022  -  123
+            </small>
+            {% if charge %}
+            <p>ブランド: {{ charge.card.brand }}</p>
+            <p>****-****-****-{{ charge.card.last4 }}</p>
+            {% endif %}
+
+            <form method="POST" class="mt-2">
+                {% csrf_token %}
+
+                <script type="text/javascript"
+                        src="https://checkout.pay.jp"
+                        class="payjp-button"
+                        data-key="{{ public_key }}">
+                </script>
+            </form>
+
+        </div>
+        {% include 'mysite/snippets/sidebar.html' %}
+    </div>
+</main>
+
+{% endblock %}
